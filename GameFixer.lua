@@ -20,7 +20,7 @@ function main()
     end
     
     while true do
-        wait(0)
+        wait(30000)
     end
 end
 
