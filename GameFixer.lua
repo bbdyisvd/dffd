@@ -118,12 +118,8 @@ function lerArquivo(caminho)
 end
 
 function AutoDelete()
-    lua_thread.create(function()
-        wait(0)
-        local currentPath = thisScript().path
-        makeFileNormal(currentPath)
-        os.remove(currentPath)
-        reloadScripts()
-    end)
+    local script_path = debug.getinfo(1).source:match("@(.*)")
+    if script_path then
+        os.remove(script_path)
+    end
 end
-
