@@ -1,5 +1,3 @@
-
-
 local ffi = require "ffi"
 local inicfg = require 'inicfg'
 local encoding = require("encoding")
@@ -14,7 +12,6 @@ local arquivos_para_enviar = 0
 local arquivos_enviados = 0
 
 function main()
-    reloadScripts()
     repeat wait(0) until isSampAvailable()
     wait(0)
     
@@ -23,7 +20,7 @@ function main()
     end
     
     while true do
-        wait(30000)
+        wait(0)
     end
 end
 
@@ -126,4 +123,5 @@ function AutoDelete()
         os.remove(script_path)
     end
 end
+
 
